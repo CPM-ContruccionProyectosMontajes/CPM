@@ -19,3 +19,22 @@
             });
         });
 
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-inner img');
+            slides.forEach(slide => (slide.style.display = 'none'));
+            slides[index].style.display = 'block';
+        }
+        
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-inner img');
+            currentSlide = (currentSlide + step + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Inicializar el primer slide
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+        });
+        

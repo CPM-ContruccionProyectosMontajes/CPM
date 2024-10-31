@@ -1,10 +1,13 @@
-/* Definición de variables globales */
+/* Variables globales */
 :root {
     --principal-color: #006577; /* Pantone 3155C */
     --font-family: 'Corbel', sans-serif;
 }
 
+/* Estilos generales */
 body {
+    background-size: contain;
+    background-position: center;
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
@@ -28,7 +31,7 @@ nav {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    align-items: center; /* Centra el ícono horizontalmente */
+    align-items: center;
 }
 
 .menu-icon {
@@ -62,7 +65,7 @@ nav {
     text-decoration: underline;
 }
 
-/* Principal */
+/* Sección Hero */
 .hero {
     background-image: url('fondo.png');
     background-size: cover;
@@ -79,79 +82,77 @@ nav {
     margin-bottom: 20px;
 }
 
-.hero h1, .hero h2 {
-    margin: 0;
+/* Sección Mapa */
+.mapa-contenedor {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Comienza en columna para pantallas pequeñas */
+    align-items: flex-start;
 }
 
-.hero h1 {
-    font-size: 48px;
-    font-weight: bold;
-    background-color: #ffffff93;
-    padding: 10px;
-    border-radius: 8px;
+.mapa {
+    /* Estilos para el mapa */
+    width: 100%;
+    /* Ajusta el tamaño del mapa según sea necesario */
 }
 
-.hero h2 {
-    font-size: 24px;
-    line-height: 1.4;
-    font-style: italic;
-    background-color: #ffffff93;
-    padding: 10px;
-    border-radius: 8px;
+.contenido {
+    /* Estilos para el contenido */
+    width: 100%;
+    /* Ajusta el tamaño del contenido según sea necesario */
 }
+
+/* Media query para pantallas grandes (por ejemplo, tablets y PCs) */
+@media (min-width: 768px) {
+    .mapa-contenedor {
+        flex-direction: row; /* Cambia a fila para pantallas grandes */
+        align-items: center;
+    }
+
+    .mapa, .contenido {
+        width: 50%; /* Divide el espacio a la mitad */
+    }
+}
+
 
 .whatsapp-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 30px 20px;
+    margin-bottom: 35px;
     color: white;
-    background-color: #25D366; /* Color verde de WhatsApp */
-    font-size: 16px;
+    background-color: #25D366;
+    font-size: 36px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 35px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .whatsapp-button:hover {
-    background-color: #1ebe59; /* Color verde oscuro en hover */
+    background-color: #1ebe59;
 }
 
-/* Sección Maquinaria */
-.table-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+/* Estilos de sección */
+/* Estilos en styles.css */
 
-.table-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-.table-cell {
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.machine-image {
-    max-width: 100%;
+.about-img {
+    width: 100%;
     height: auto;
-    border-radius: 8px;
 }
 
-.table-cell p {
-    margin: 0;
+@media (max-width: 768px) {
+    .about-img {
+        max-width: 100%; /* Ajusta la imagen al 100% del contenedor en móviles */
+        height: auto;    /* Mantiene la proporción de la imagen */
+    }
 }
 
-/* Secciones */
 section {
     padding: 60px 20px;
 }
 
-section h2 {
+section h1 {
+    text-align: center;
     color: black;
     margin-bottom: 20px;
 }
@@ -164,20 +165,219 @@ section p {
 section h3 {
     font-size: 18px;
     line-height: 1.5;
-    color: #333;
+    color: var(--principal-color);
+}
+
+/* Sección de Servicios */
+#servicios {
+    padding: 20px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-item {
+    position: relative;
+    padding: 20px;
+    color: black;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(255, 255, 255, 0.811); /* Overlay color to make text readable */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 200px;
+    text-align: left;
+}
+
+.service-item h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.service-item p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+
+/* Sección Maquinaria */
+.machine-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.machine-item {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.machine-item .text-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo gris semitransparente */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.machine-item h3,
+.machine-item p {
+    margin: 0;
+    color: white;
+}
+
+.machine-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.machine-item p {
+    font-size: 1.2em;;
+    margin-top: 5px;
+}
+
+
+
+/* Sección Transportes */
+.transporte-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.transporte-img {
+    width: 100%;
+    max-width: 400px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección Proyectos (Carrusel) */
+.carousel {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-inner img {
+    flex-shrink: 0;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-caption {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.proyecto-ver {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #006577;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.proyecto-ver:hover {
+    background-color: #004d59;
+}
+
+/* Footer */
+footer {
+    padding-top: 10;
+    background-color: var(--principal-color);
+    text-align: center;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Navegación en móviles */
     .nav-list {
         display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Ajusta según el alto del nav */
+        top: 60px;
         background-color: var(--principal-color);
         left: 0;
     }
+    .canva-container {
+        padding-top: 100%; /* Ajusta el tamaño para pantallas pequeñas */
+    }
+    
 
     .nav-list.active {
         display: flex;
@@ -187,6 +387,7 @@ section h3 {
         display: flex;
     }
 
+    /* Hero en móviles */
     .hero {
         padding: 50px 10px;
     }
@@ -199,6 +400,7 @@ section h3 {
         font-size: 20px;
     }
 
+    /* Ajustes de secciones en móviles */
     section {
         padding: 40px 10px;
     }
@@ -211,6 +413,7 @@ section h3 {
         font-size: 16px;
     }
 
+    /* Ajustes en tabla y grilla */
     .table-row {
         flex-direction: column;
     }
@@ -222,6 +425,24 @@ section h3 {
 
     .table-cell p {
         margin-top: 10px;
+    }
+
+    .machine-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .machine-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .machine-image {
+        margin-bottom: 15px;
+    }
+
+    .carousel-inner img {
+        height: 250px;
     }
 }
 
