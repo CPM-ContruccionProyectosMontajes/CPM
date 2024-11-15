@@ -18,6 +18,8 @@ body {
 nav {
     background-color: var(--principal-color);
     padding: 10px;
+    border-color: white;
+    border-bottom: 5px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -91,16 +93,30 @@ nav {
 }
 
 .mapa {
+    flex: 2;
     /* Estilos para el mapa */
     width: 100%;
     /* Ajusta el tamaño del mapa según sea necesario */
 }
 
 .contenido {
+    flex: 1;
     /* Estilos para el contenido */
     width: 100%;
+    background-color: #ffffffcb;
+    text-align: start;
+    padding: 50px 10px;
     /* Ajusta el tamaño del contenido según sea necesario */
 }
+
+#nosotros {
+    background: linear-gradient(to bottom, #3da1c1, white);
+    text-align: center;
+}
+#nosotros h1 {
+    font-size: 2.0em;
+}
+
 
 /* Media query para pantallas grandes (por ejemplo, tablets y PCs) */
 @media (min-width: 768px) {
@@ -148,7 +164,7 @@ nav {
 }
 
 section {
-    padding: 60px 20px;
+    padding: 20px 5px;
 }
 
 section h1 {
@@ -170,6 +186,7 @@ section h3 {
 
 /* Sección de Servicios */
 #servicios {
+    background: linear-gradient(to bottom, white, gray);
     padding: 20px;
     text-align: center;
 }
@@ -197,9 +214,24 @@ section h3 {
     text-align: left;
 }
 
+button {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de letra */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+button:hover {
+    background-color: #45a049; /* Color al pasar el cursor */
+}
+
 .service-item h3 {
     margin: 0;
-    font-size: 1.5em;
+    font-size:2.0em;
 }
 
 .service-item p {
@@ -209,6 +241,13 @@ section h3 {
 
 
 /* Sección Maquinaria */
+#maquinaria {
+    background-color: gray;
+}
+#maquinaria h1{
+    font-size: 2.0em;
+}
+
 .machine-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -257,12 +296,25 @@ section h3 {
 
 
 /* Sección Transportes */
+#transportes{
+    font-size: 1.2em;
+    background: linear-gradient(to bottom,gray, black);
+}
+#transportes h1{
+    font-size: 2.0em;
+    color: var(--principal-color);
+}
 .transporte-item {
-    background-color: #f0f0f0;
+    background-color: #f0f0f046;
     padding: 20px;
     margin: 10px 0;
     border-radius: 8px;
-    text-align: center;
+    text-align: start;
+    color: black;
+}
+
+.transporte-item p strong{
+    color: var(--principal-color);
 }
 
 .transporte-img {
@@ -273,7 +325,20 @@ section h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.service-details, .service-details h1{
+    color: white;
+}
+
+.service-details p strong{
+    color: var(--principal-color);
+}
+
 /* Sección Proyectos (Carrusel) */
+
+#proyectos {
+    background-color: #000000;
+    text-align: center;
+}
 .carousel {
     position: relative;
     max-width: 80%;
@@ -342,6 +407,7 @@ footer {
 }
 
 .footer-container {
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -377,7 +443,7 @@ footer {
     .canva-container {
         padding-top: 100%; /* Ajusta el tamaño para pantallas pequeñas */
     }
-    
+
 
     .nav-list.active {
         display: flex;
