@@ -18,10 +18,12 @@ body h1{
     font-size: 2.0em;
     color: var(--principal-color);
 }
- body h3, li{
+body h3, li{
     font-size: 1.2em;
  }
-
+body h3{
+    text-align: center;
+}
  strong{
     color: var(--principal-color);
  }
